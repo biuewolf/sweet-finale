@@ -1,277 +1,35 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>最後的甜點師 - 黑童話的隱喻</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: radial-gradient(ellipse at top, #1c1c2d 0%, #0a0a0a 100%);
-      color: #f3f3f3;
-      font-family: 'Noto Serif TC', serif;
-      line-height: 1.8;
-    }
-    header {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 1rem 2rem;
-      backdrop-filter: blur(6px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      position: sticky;
-      top: 0;
-    }
-    nav a {
-      color: #f3f3f3;
-      text-decoration: none;
-      margin-right: 1.5rem;
-      font-weight: bold;
-    }
-    .hero {
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      max-width: 700px;
-      margin: 0 auto;
-      font-size: 1.2rem;
-      color: #cccccc;
-    }
-    .section {
-      padding: 3rem 2rem;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .section h2 {
-      border-bottom: 1px solid #444;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
-    }
-    footer {
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #888;
-      border-top: 1px solid #222;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 0.8rem 1.5rem;
-      background-color: #8f5572;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <nav>
-      <a href="#story">故事正文</a>
-      <a href="#fairytales">黑童話湯點</a>
-      <a href="#about">關於</a>
-      <a href="#join">合作募集</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h1>最後的甜點師 - 黑童話的隱喻</h1>
-    <p>這不是一家甜點店，這是一場你再也嚥不下的夢。</p>
-    <a href="#story" class="btn">進入故事</a>
-  </section>
-
-  <section id="story" class="section">
-    <h2>故事正文</h2>
-    <p>（此處將插入完整故事段落，可連接 Markdown 檔或 JS 載入）</p>
-  </section>
-
-  <section id="fairytales" class="section">
-    <h2>黑童話湯點圖鑑</h2>
-    <p>探索每一道甜點背後的黑童話原型，點擊可展開查看解答與心理解析。</p>
-  </section>
-
-  <section id="about" class="section">
-    <h2>關於這部作品</h2>
-    <p>《最後的甜點師》是一部以「你」為主角的詩性黑童話，藉由甜點引出記憶、遺憾、自我解離等心理象徵。</p>
-  </section>
-
-  <section id="join" class="section">
-    <h2>合作與作品集募集</h2>
-    <p>我們正在尋找動畫學生、配音員與美術設計參與這場作品建構。<br>
-    點此前往 <a href="https://forms.gle/your-form-link" target="_blank">合作報名表單</a>。</p>
-  </section>
-
-  <footer>
-    &copy; 2025 最後的甜點師 — 黑童話的隱喻｜All rights reserved.
-  </footer>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>最後的甜點師：沉浸式故事頁</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: #0c0c0c;
-      color: #f5f5f5;
-      font-family: 'Noto Serif TC', serif;
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-    }
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(0,0,0,0.5);
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem;
-      z-index: 1000;
-      backdrop-filter: blur(6px);
-    }
-    nav a {
-      color: #f5f5f5;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1rem;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: #ff9eb5;
-    }
-    .section {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 5rem 2rem 3rem;
-      transition: all 1s ease-in-out;
-      opacity: 0;
-      transform: translateY(60px);
-    }
-    .section:nth-child(even) {
-      background: #1a1a1a;
-    }
-    .section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .section p {
-      font-size: 1.2rem;
-      max-width: 700px;
-    }
-    .glass {
-      background: rgba(255,255,255,0.05);
-      backdrop-filter: blur(6px);
-      padding: 2rem;
-      border-radius: 12px;
-      margin: 0 auto;
-      width: 85%;
-    }
-    .bg-img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      opacity: 0.1;
-      pointer-events: none;
-    }
-  </style>
+  <title>最後的甜點師 - 黑童話的隱喻</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <nav>
-    <a href="#s1">開場</a>
-    <a href="#s2">記憶</a>
-    <a href="#s3">戀愛</a>
-    <a href="#s4">社會</a>
-    <a href="#s5">靜音</a>
-    <a href="#s6">真相</a>
-    <a href="#s7">崩塌</a>
-    <a href="#s8">結語</a>
-  </nav>
+  <div class="background"></div>
+  <header>
+    <h1>最後的甜點師</h1>
+    <p class="subtitle">吞下的不是甜點，是你自己</p>
+  </header>
 
-  <section id="s1" class="section glass" style="background:linear-gradient(135deg, #000000, #1e1e2f);">
-    <img class="bg-img" src="https://images.unsplash.com/photo-1542117564-3d01f4929c31?auto=format&fit=crop&w=1600&q=80" alt="bg1">
-    <h2>這不是一家甜點店。</h2>
-    <p>它會在你快撐不下去的時候出現。沒招牌、沒地址，卻總會找到你。</p>
-  </section>
+  <main>
+    <section class="intro">
+      <p>這是一份童話甜點化的心理探索長篇。你會在故事中看見許多奇怪的甜點，那些不是虛構食物——它們是「真實人生中，我們用來應對痛苦的方式」。</p>
+      <ul>
+        <li>每一道甜點代表一種情緒機制：逃避、自我壓抑、過度討好、遺憾循環、自我價值感崩潰等。</li>
+        <li>它們偽裝成童話元素，讓你在吞嚥故事的同時，也吞進現實殘酷的對照。</li>
+        <li>本故事整合了 39 道原創「黑童話甜點海龜湯題目」，每一道都轉化為故事章節中的關鍵物件。</li>
+      </ul>
+      <p>如果你覺得你不懂童話，那沒關係——你懂痛，那就夠了。</p>
+      <p class="quote">「在這裡，故事不會開場，只有你打開嘴巴那刻，才算開始。」</p>
+      <a class="enter-btn" href="story.html" target="_blank">點此進入故事世界</a>
+    </section>
+  </main>
 
-  <section id="s2" class="section glass">
-    <img class="bg-img" src="https://images.unsplash.com/photo-1589652717521-10c0d092dea9?auto=format&fit=crop&w=1600&q=80" alt="bg2">
-    <h2>第一章｜記憶與遺憾的多層切片</h2>
-    <p>你切下那塊黑森林蛋糕，一層層過去打開：有人叫你「太乖」、有人說你「想太多」、有人把你寫的作文扯掉。
-    你吃的不是蛋糕，是別人替你寫下的童年版本。</p>
-  </section>
-
-  <section id="s3" class="section glass">
-    <img class="bg-img" src="https://images.unsplash.com/photo-1526821669619-c70aa1d8d6ac?auto=format&fit=crop&w=1600&q=80" alt="bg3">
-    <h2>第二章｜戀愛投射與扭曲</h2>
-    <p>你穿上紅鞋，不斷旋轉。他遞出毒蘋果奶昔，你喝下去。你跳舞、你微笑，但鏡子裡根本沒有人在抱你。</p>
-  </section>
-
-  <section id="s4" class="section glass">
-    <img class="bg-img" src="https://images.unsplash.com/photo-1521747116042-5a810fda9664?auto=format&fit=crop&w=1600&q=80" alt="bg4">
-    <h2>第三章｜社會標準與自我解離</h2>
-    <p>你咬下那塊印著 QR code 的可麗餅。你說：「今天也要加油」，但那不是你的聲音。</p>
-  </section>
-
-  <section id="s5" class="section glass">
-    <img class="bg-img" src="https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?auto=format&fit=crop&w=1600&q=80" alt="bg5">
-    <h2>第四章｜靜音與自我麻痺</h2>
-    <p>便利店裡燈火通明，你說「我沒事」。甜點在你眼前融化，你沒感覺。</p>
-  </section>
-
-  <section id="s6" class="section glass">
-    <img class="bg-img" src="https://images.unsplash.com/photo-1611241893603-ebee7ba5a4fb?auto=format&fit=crop&w=1600&q=80" alt="bg6">
-    <h2>第五章｜誠實與真相碎片</h2>
-    <p>你咬下狼形餅乾，說出：「我從沒想原諒你。」下一口，你忘了你說過什麼。</p>
-  </section>
-
-  <section id="s7" class="section glass">
-    <img class="bg-img" src="https://images.unsplash.com/photo-1624213926189-4642a0a2ffb1?auto=format&fit=crop&w=1600&q=80" alt="bg7">
-    <h2>第六章｜空蛋糕與崩塌</h2>
-    <p>你咬下那塊沒有奶油的蛋糕，突然哭了。不是因為痛，而是因為你再也騙不了自己。</p>
-  </section>
-
-  <section id="s8" class="section glass">
-    <img class="bg-img" src="https://images.unsplash.com/photo-1604079626926-c7b9dbdfddf0?auto=format&fit=crop&w=1600&q=80" alt="bg8">
-    <h2>「你不是吃飽了，你只是吞進去太多沒說的話。」</h2>
-    <p>這是你最後的甜點。或許，終於可以不吃了。</p>
-  </section>
-
-  <script>
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.utils.toArray(".section").forEach(section => {
-      gsap.to(section, {
-        opacity: 1,
-        y: 0,
-        duration: 1.5,
-        scrollTrigger: {
-          trigger: section,
-          start: "top 80%",
-          toggleActions: "play none none none"
-        }
-      });
-    });
-  </script>
+  <footer>
+    <p>© 2025 黑童話甜點地獄計畫</p>
+  </footer>
 </body>
 </html>
