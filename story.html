@@ -1,42 +1,54 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>甜點主菜</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>最後的甜點師 - 故事頁</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <nav id="chapter-nav">
-    <ul>
-      <li><a href="#chapter1">第一章</a></li>
-      <li><a href="#chapter2">第二章</a></li>
-      <li><a href="#chapter3">第三章</a></li>
-      <li><a href="#chapter4">第四章</a></li>
-      <li><a href="#chapter5">第五章</a></li>
-    </ul>
-  </nav>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#chapter1">第一章</a></li>
+        <li><a href="#chapter2">第二章</a></li>
+        <li><a href="#chapter3">第三章</a></li>
+        <li><a href="#chapter4">第四章</a></li>
+        <li><a href="#chapter5">第五章</a></li>
+      </ul>
+    </nav>
+    <h1>最後的甜點師：黑童話的隱喻</h1>
+  </header>
 
-  <main id="story-container">
-    <!-- 示例章节 -->
-    <section id="chapter1" class="chapter">
-      <h2>第一章：開始</h2>
-      <p>
-        這是一段故事內容，包含一個特殊詞彙
-        <span class="special-term" data-term="海龜湯題目1">？</span>。
-      </p>
-      <div class="term-hint">可點詞彙提示</div>
-    </section>
-    <!-- 其他章节 -->
+  <main>
+    <div id="content">
+      <!-- 此處插入完整故事，每段帶特殊詞彙 -->
+      <section id="chapter1">
+        <h2>第一章：記憶與遺憾的多層切片</h2>
+        <p>
+          你走進房間，空氣中飄來一股 <span class="term" data-id="1">奶昔</span> 味。
+          鏡子裡的你浮現不清晰的倒影，你說不出來那股感覺是什麼——
+          <span class="term" data-id="4">擦掉錯誤</span>的味道。
+        </p>
+        <p class="hint">可點詞彙提示</p>
+      </section>
+
+      <!-- 更多章節請照格式複製貼上 -->
+
+    </div>
+
+    <div id="popup" class="hidden">
+      <div id="popup-inner">
+        <button id="popup-close">×</button>
+        <div id="popup-content"></div>
+      </div>
+    </div>
   </main>
 
-  <!-- Popup -->
-  <div id="popup" class="hidden">
-    <div id="popup-content"></div>
-    <button id="popup-close">關閉</button>
-  </div>
-
-  <script src="script.js"></script>
+  <footer>
+    <p>© 2025 最後的甜點師｜設計與語言 by 你與你的痛覺</p>
+  </footer>
 </body>
 </html>
 
