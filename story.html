@@ -4,139 +4,53 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>最後的甜點師 - 黑童話的隱喻</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 2rem;
-      font-family: "Noto Serif TC", serif;
-      background-color: #0e0e14;
-      color: #f3f3f3;
-      line-height: 1.8;
-    }
-
-    header {
-      text-align: center;
-      padding-bottom: 1.5rem;
-    }
-
-    h1 {
-      font-size: 2.4rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .term {
-      background-color: rgba(255, 255, 255, 0.1);
-      color: #f3f3f3;
-      border-bottom: 1px dotted #aaa;
-      padding: 0.1rem 0.3rem;
-      border-radius: 3px;
-      cursor: pointer;
-    }
-
-    .term:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-
-    #popup {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background-color: rgba(0, 0, 0, 0.7);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    #popup-content {
-      background: #1e1e26;
-      padding: 2rem;
-      max-width: 500px;
-      border-radius: 8px;
-      color: #fff;
-      box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
-      position: relative;
-    }
-
-    #popup-close {
-      position: absolute;
-      top: 0.3rem;
-      right: 1rem;
-      font-size: 1.5rem;
-      color: #ccc;
-      cursor: pointer;
-      background: none;
-      border: none;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #777;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
-
+  <div class="background"></div>
   <header>
     <h1>最後的甜點師</h1>
     <p class="subtitle">吞下的不是甜點，是你自己</p>
+    <nav>
+      <a href="#chapter1">第一章</a>
+      <a href="#chapter2">第二章</a>
+      <a href="#chapter3">第三章</a>
+      <a href="#chapter4">第四章</a>
+      <a href="#chapter5">第五章</a>
+      <a href="#chapter6">最後一章</a>
+    </nav>
   </header>
 
   <main>
-    <p>你走進房間，空氣中飄來一股 <span class="term" data-id="1">奶昔</span> 味。</p>
-    <p>鏡子裡的你浮現不清晰的倒影，你說不出來那股感覺是什麼——<span class="term" data-id="4">擦掉錯誤</span> 的味道。</p>
-    <p>甜點屋不開門，只開傷口。</p>
-    <p>每一塊 <span class="term" data-id="3">黑森林蛋糕</span> 都像你沒說出的話，每一杯 <span class="term" data-id="1">毒蘋果奶昔</span> 都藏著你忘記為何要變好的原因。</p>
-    <p>你坐下，甜點師不說話，他只問：「你想先吃哪一塊自己？」</p>
-    <p>故事就從這裡開始。</p>
+    <section class="intro fade-in">
+      <p>這是一份童話甜點化的心理探索長篇。你會在故事中看見許多奇怪的甜點，那些不是虛構食物——它們是「真實人生中，我們用來應對痛苦的方式」。</p>
+      <ul>
+        <li>每一道甜點代表一種情緒機制：逃避、自我壓抑、過度討好、遺憾循環、自我價值感崩潰等。</li>
+        <li>它們偽裝成童話元素，讓你在吞嚥故事的同時，也吞進現實殘酷的對照。</li>
+        <li>本故事整合了 39 道原創「黑童話甜點海龜湯題目」，每一道都轉化為故事章節中的關鍵物件。</li>
+      </ul>
+      <p class="quote">「在這裡，故事不會開場，只有你打開嘴巴那刻，才算開始。」</p>
+    </section>
 
-    <!-- 👆 這邊可以繼續往下貼你的段落，每段的關鍵詞用 <span class="term" data-id="X">詞彙</span> 包起來 -->
+    <section id="chapter1" class="chapter fade-in">
+      <h2>第一章：記憶與遺憾的多層切片</h2>
+      <p>你走進房間，空氣中飄來一股 <span class="term" data-id="4">奶昔</span>味。</p>
+      <p>鏡子裡的你浮現不清晰的倒影，你說不出來那股感覺是什麼——<span class="term" data-id="4">擦掉錯誤</span>的味道。</p>
+      <p>甜點屋不開門，只開傷口。你坐下，甜點師問：「你想吃哪一塊自己？」</p>
+      <!-- ...其餘段落內容補上... -->
+    </section>
 
+    <!-- ✨ 章節會依序補上 -->
+
+    <div id="popup" class="hidden">
+      <div id="popup-content"></div>
+      <button id="popup-close">關閉</button>
+    </div>
   </main>
 
-  <div id="popup">
-    <div id="popup-content">
-      <button id="popup-close">✕</button>
-      <p id="popup-text">詞彙解釋</p>
-    </div>
-  </div>
-
   <footer>
-    &copy; 2025 黑童話甜點地獄計畫
+    <p>© 2025 黑童話甜點地獄計畫｜你還想再吃一口嗎？</p>
   </footer>
-
-  <script>
-    const termData = {
-      1: "這是白雪公主的毒蘋果奶昔：讓你忘記自我厭惡，也忘記為什麼要變好。",
-      3: "這是黑森林蛋糕，代表你壓抑已久的真實童年版本。",
-      4: "這是選擇性遺忘素，會讓你洗掉對錯的辨識力，只剩微笑殘影。",
-      // 👉 ...可依據你全部39個詞彙資料依序補上 data-id 與對應說明 👈
-    };
-
-    const popup = document.getElementById("popup");
-    const popupText = document.getElementById("popup-text");
-    const popupClose = document.getElementById("popup-close");
-
-    document.querySelectorAll(".term").forEach(el => {
-      el.addEventListener("click", () => {
-        const id = el.dataset.id;
-        popupText.textContent = termData[id] || "這道甜點還沒上桌。";
-        popup.style.display = "flex";
-      });
-    });
-
-    popupClose.addEventListener("click", () => {
-      popup.style.display = "none";
-    });
-
-    window.addEventListener("click", e => {
-      if (e.target === popup) {
-        popup.style.display = "none";
-      }
-    });
-  </script>
-
 </body>
 </html>
