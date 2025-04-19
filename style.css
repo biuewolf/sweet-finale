@@ -1,96 +1,127 @@
+/* 全站背景與排版 */
 body {
   margin: 0;
   padding: 0;
-  background: url('background.jpg') center/cover no-repeat fixed;
-  color: #f2f2f2;
-  font-family: 'Noto Serif TC', serif;
+  font-family: "Noto Serif TC", serif;
+  background-color: #0e0e14;
+  color: #f0f0f0;
   line-height: 1.8;
-  text-align: center;
-}
-
-header {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 2rem;
-  position: sticky;
-  top: 0;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  padding: 0;
-}
-
-nav li {
-  margin: 0 1rem;
-}
-
-nav a {
-  color: #f2f2f2;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-main {
-  max-width: 850px;
-  margin: auto;
-  padding: 2rem;
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 12px;
-}
-
-.term {
-  cursor: pointer;
-  text-decoration: underline;
-  text-decoration-style: dotted;
-  filter: blur(2px);
-  transition: all 0.3s ease;
-}
-.term:hover {
-  filter: blur(0);
-  color: #ffc0cb;
-}
-
-#popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(15, 15, 15, 0.85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#popup-inner {
-  background: #1c1c1c;
-  color: #fff;
-  max-width: 600px;
-  padding: 2rem;
-  border-radius: 10px;
   position: relative;
 }
 
-#popup-close {
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('assets/bg.jpg') center/cover no-repeat;
+  opacity: 0.2;
+  z-index: -1;
+  filter: blur(3px);
+}
+
+/* header 與導航 */
+header {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #bbb;
+}
+
+/* 主內容 */
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.03);
+}
+
+.intro ul {
+  padding-left: 1.2rem;
+}
+
+.quote {
+  font-style: italic;
+  color: #d0a0d0;
+  margin-top: 1rem;
+}
+
+.enter-btn {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.8rem 1.6rem;
+  background-color: #7b4c68;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.85rem;
+  color: #888;
+  border-top: 1px solid #222;
+}
+
+/* 特殊詞彙點擊特效 */
+.trigger-word {
+  color: #f0c5ff;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.trigger-word:hover {
+  color: #fff;
+  text-shadow: 0 0 8px rgba(255, 200, 255, 0.6);
+}
+
+/* 彈出卡片 */
+#overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+#dream-card {
+  background: #1f1f2a;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 600px;
+  color: #f3f3f3;
+  box-shadow: 0 0 20px rgba(255, 200, 255, 0.2);
+  position: relative;
+}
+
+#close-card {
   position: absolute;
   top: 0.5rem;
   right: 1rem;
   background: none;
-  color: #fff;
   border: none;
   font-size: 1.5rem;
+  color: #ccc;
   cursor: pointer;
-}
-
-.hidden {
-  display: none;
-}
-
-.hint {
-  font-size: 0.85rem;
-  color: #aaa;
-  margin-top: -0.5rem;
 }
 
