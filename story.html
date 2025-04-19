@@ -1,112 +1,142 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <title>互動甜點地獄™️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>最後的甜點師 - 黑童話的隱喻</title>
   <style>
     body {
-      font-family: sans-serif;
-      line-height: 1.6;
-      padding: 2em;
-      background: #fefefe;
-      color: #333;
+      margin: 0;
+      padding: 2rem;
+      font-family: "Noto Serif TC", serif;
+      background-color: #0e0e14;
+      color: #f3f3f3;
+      line-height: 1.8;
     }
-    .highlight {
-      background-color: yellow;
-      font-weight: bold;
-    }
-    .page {
-      display: none;
-    }
-    .page.active {
-      display: block;
-    }
-    .pagination {
-      margin-top: 2em;
+
+    header {
       text-align: center;
+      padding-bottom: 1.5rem;
     }
-    .pagination button {
-      margin: 0 0.25em;
-      padding: 0.5em 1em;
-      font-size: 1em;
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .term {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #f3f3f3;
+      border-bottom: 1px dotted #aaa;
+      padding: 0.1rem 0.3rem;
+      border-radius: 3px;
       cursor: pointer;
+    }
+
+    .term:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    #popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    #popup-content {
+      background: #1e1e26;
+      padding: 2rem;
+      max-width: 500px;
+      border-radius: 8px;
+      color: #fff;
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+      position: relative;
+    }
+
+    #popup-close {
+      position: absolute;
+      top: 0.3rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      color: #ccc;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #777;
     }
   </style>
 </head>
 <body>
 
-  <div id="story-container"></div>
+  <header>
+    <h1>最後的甜點師</h1>
+    <p class="subtitle">吞下的不是甜點，是你自己</p>
+  </header>
 
-  <div class="pagination" id="pagination-controls"></div>
+  <main>
+    <p>你走進房間，空氣中飄來一股 <span class="term" data-id="1">奶昔</span> 味。</p>
+    <p>鏡子裡的你浮現不清晰的倒影，你說不出來那股感覺是什麼——<span class="term" data-id="4">擦掉錯誤</span> 的味道。</p>
+    <p>甜點屋不開門，只開傷口。</p>
+    <p>每一塊 <span class="term" data-id="3">黑森林蛋糕</span> 都像你沒說出的話，每一杯 <span class="term" data-id="1">毒蘋果奶昔</span> 都藏著你忘記為何要變好的原因。</p>
+    <p>你坐下，甜點師不說話，他只問：「你想先吃哪一塊自己？」</p>
+    <p>故事就從這裡開始。</p>
+
+    <!-- 👆 這邊可以繼續往下貼你的段落，每段的關鍵詞用 <span class="term" data-id="X">詞彙</span> 包起來 -->
+
+  </main>
+
+  <div id="popup">
+    <div id="popup-content">
+      <button id="popup-close">✕</button>
+      <p id="popup-text">詞彙解釋</p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 黑童話甜點地獄計畫
+  </footer>
 
   <script>
-    // 39個詞彙
-    const vocab = [
-      "甜點", "地獄", "糖霜", "蛋糕", "巧克力", "奶油", "烘焙", "糖果", "餅乾", "冰淇淋",
-      "蜜糖", "果醬", "布丁", "奶酪", "糖漿", "慕斯", "泡芙", "塔", "馬卡龍", "提拉米蘇",
-      "舒芙蕾", "甜甜圈", "奶昔", "糖粉", "焦糖", "果凍", "雪糕", "奶茶", "可麗餅", "鬆餅",
-      "蜜餞", "棉花糖", "糖葫蘆", "甜湯", "糖球", "糖心", "糖衣", "糖果屋", "糖果山"
-    ];
+    const termData = {
+      1: "這是白雪公主的毒蘋果奶昔：讓你忘記自我厭惡，也忘記為什麼要變好。",
+      3: "這是黑森林蛋糕，代表你壓抑已久的真實童年版本。",
+      4: "這是選擇性遺忘素，會讓你洗掉對錯的辨識力，只剩微笑殘影。",
+      // 👉 ...可依據你全部39個詞彙資料依序補上 data-id 與對應說明 👈
+    };
 
-    // 模擬的段落內容（請根據需要替換為實際內容）
-    const paragraphs = [
-      "這是一段關於甜點的故事，充滿了糖霜和巧克力的香氣。",
-      "在這個地獄般的廚房裡，烘焙師傅正在製作奶油餅乾。",
-      "冰淇淋和蜜糖混合在一起，創造出令人難以抗拒的甜點。",
-      "果醬和布丁是這家店的招牌，吸引了無數顧客。",
-      "奶酪塔和馬卡龍擺滿了展示櫃，色彩繽紛。",
-      "提拉米蘇和舒芙蕾是甜點界的經典之作。",
-      "甜甜圈和奶昔搭配起來，成為完美的下午茶組合。",
-      "糖粉灑在焦糖果凍上，增加了層次感。",
-      "雪糕和奶茶的組合，帶來前所未有的口感。",
-      "可麗餅和鬆餅是早餐的最佳選擇。",
-      "蜜餞和棉花糖讓人回味童年的味道。",
-      "糖葫蘆和甜湯是冬季的熱門甜點。",
-      "糖球和糖心巧克力是情人節的熱門禮物。",
-      "糖衣包裹的糖果屋，像是童話中的夢境。",
-      "糖果山上的各種甜點，令人目不暇給。"
-    ];
+    const popup = document.getElementById("popup");
+    const popupText = document.getElementById("popup-text");
+    const popupClose = document.getElementById("popup-close");
 
-    const storyContainer = document.getElementById('story-container');
-    const paginationControls = document.getElementById('pagination-controls');
-    const paragraphsPerPage = 3;
-    const totalPages = Math.ceil(paragraphs.length / paragraphsPerPage);
-
-    function highlightText(text, words) {
-      const escapedWords = words.map(word => word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-      const pattern = new RegExp('\\b(' + escapedWords.join('|') + ')\\b', 'gi');
-      return text.replace(pattern, '<span class="highlight">$1</span>');
-    }
-
-    function renderPage(pageNumber) {
-      storyContainer.innerHTML = '';
-      const start = (pageNumber - 1) * paragraphsPerPage;
-      const end = start + paragraphsPerPage;
-      const pageParagraphs = paragraphs.slice(start, end);
-      pageParagraphs.forEach(paragraph => {
-        const p = document.createElement('p');
-        p.innerHTML = highlightText(paragraph, vocab);
-        storyContainer.appendChild(p);
+    document.querySelectorAll(".term").forEach(el => {
+      el.addEventListener("click", () => {
+        const id = el.dataset.id;
+        popupText.textContent = termData[id] || "這道甜點還沒上桌。";
+        popup.style.display = "flex";
       });
-    }
+    });
 
-    function renderPaginationControls() {
-      paginationControls.innerHTML = '';
-      for (let i = 1; i <= totalPages; i++) {
-        const button = document.createElement('button');
-        button.textContent = i;
-        button.addEventListener('click', () => {
-          renderPage(i);
-        });
-        paginationControls.appendChild(button);
+    popupClose.addEventListener("click", () => {
+      popup.style.display = "none";
+    });
+
+    window.addEventListener("click", e => {
+      if (e.target === popup) {
+        popup.style.display = "none";
       }
-    }
-
-    // 初始化
-    renderPaginationControls();
-    renderPage(1);
+    });
   </script>
 
 </body>
 </html>
-
