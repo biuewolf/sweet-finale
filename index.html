@@ -33,3 +33,43 @@
   </footer>
 </body>
 </html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>甜點主菜</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav id="chapter-nav">
+    <ul>
+      <li><a href="#chapter1">第一章</a></li>
+      <li><a href="#chapter2">第二章</a></li>
+      <li><a href="#chapter3">第三章</a></li>
+      <li><a href="#chapter4">第四章</a></li>
+      <li><a href="#chapter5">第五章</a></li>
+    </ul>
+  </nav>
+
+  <main id="story-container">
+    <!-- 示例章节 -->
+    <section id="chapter1" class="chapter">
+      <h2>第一章：開始</h2>
+      <p>
+        這是一段故事內容，包含一個特殊詞彙
+        <span class="special-term" data-term="海龜湯題目1">？</span>。
+      </p>
+      <div class="term-hint">可點詞彙提示</div>
+    </section>
+    <!-- 其他章节 -->
+  </main>
+
+  <!-- Popup -->
+  <div id="popup" class="hidden">
+    <div id="popup-content"></div>
+    <button id="popup-close">關閉</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
