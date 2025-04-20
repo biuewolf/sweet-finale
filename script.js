@@ -19,3 +19,29 @@ document.querySelectorAll('.term').forEach(el => {
 popupClose.addEventListener('click', () => {
   popup.classList.add('hidden');
 });
+// 詞彙資料
+const termData = {
+
+document.querySelectorAll('.term').forEach(el => {
+  el.addEventListener('click', () => {
+    const id = el.dataset.id;
+    const popup = document.getElementById('popup');
+    const content = document.getElementById('popup-content');
+    content.innerText = termData[id] || "這道甜點還沒端上桌。";
+    popup.classList.remove('hidden');
+  });
+});
+
+document.getElementById('popup-close').addEventListener('click', () => {
+  document.getElementById('popup').classList.add('hidden');
+});
+
+// 滑入淡入效果
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+});
+document.querySelectorAll('.fade-in').forEach(section => observer.observe(section));
